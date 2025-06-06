@@ -7,6 +7,7 @@ import (
 	"os"
 
 	sq "github.com/Masterminds/squirrel"
+	"github.com/aidenappl/rootedinjector/env"
 	_ "github.com/lib/pq"
 	"github.com/schollz/progressbar/v3"
 )
@@ -63,7 +64,7 @@ type Address struct {
 func main() {
 	var errorLog []string
 
-	db, err := sql.Open("postgres", "***REMOVED***")
+	db, err := sql.Open("postgres", "postgres://postgres:"+env.DBPassword+"@"+env.DBHost+":5432/rooted?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
