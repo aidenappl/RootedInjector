@@ -252,11 +252,3 @@ func nullInt(i *int) interface{} {
 	}
 	return *i
 }
-
-// Helper to convert nullable string
-func nullStr(s string) interface{} {
-	if s == "" {
-		return nil
-	}
-	return s
-}
